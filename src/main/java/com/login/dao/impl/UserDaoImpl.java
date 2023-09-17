@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao {
             //加载驱动
             Class.forName("com.mysql.jdbc.Driver");
             //获取连接
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sly","root","SLYsly010129");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sly","root","123456");
             //获取预处理块
             pstm = conn.prepareStatement("select * from Users where name = ? and pwd = ?");
             //给?赋值
