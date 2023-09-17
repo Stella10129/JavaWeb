@@ -1,0 +1,28 @@
+***解决乱码问题***
+    一、GET请求
+        1.获取字符串之后使用new String(name.getBytes("iso-8859-1"),"utf-8")
+        2.设置request编码格式，但是也需要更改tomcat的配置文件，在server.xml中添加useBodyEncodingForURI = true的属性
+        3.直接更改server.xml，添加URIEncoding = "utf-8"的属性
+    二、POST请求
+       request.setCharacterEncoding = "utf-8"
+    三、response响应编码
+       response.setCharacterEncoding = "utf-8"
+
+
+***servlet请求转发***
+    ·客户端只发送一次请求
+    ·URL不发生改变
+    ·请求过程中只有一个request和response
+    ·几个servlet共享一个request和response
+    ·对客户端隐蔽，客户端不需要知道服务器端做了什么操作
+    ·请求转发不能跨域访问，只能跳转当前应用中的资源
+    ·请求转发可以访问WEB-INF目录下的资源
+    request，path路径是相对路径（/代表web路径）
+    request.getRequestDispatcher("/login.jsp").forward(request, response);
+
+
+***servlet重定向***
+    ·浏览器发送两次请求
+    ·URL发生变化
+    ·请求过程中产生两个request和response对象
+    ·两个servlet不能共享同一个request和response对象

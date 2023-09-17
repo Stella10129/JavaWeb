@@ -67,5 +67,14 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-
+  
+  <!--request重定向-->
+  <servlet>
+    <servlet-name>HelloRedirect</servlet-name>
+    <servlet-class>com.login.control.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloRedirect</servlet-name>
+    <url-pattern>/HelloRedirect</url-pattern>
+  </servlet-mapping>
 </web-app>
