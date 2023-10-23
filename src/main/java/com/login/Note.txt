@@ -21,8 +21,25 @@
     request.getRequestDispatcher("/login.jsp").forward(request, response);
 
 
+***servlet作用域***
+    ·不同servlet之间怎么进行数据共享
+    使用request.setAttribute(Object key, Object value)
+    以及request.getAttribute(Object key)
+
+
 ***servlet重定向***
     ·浏览器发送两次请求
     ·URL发生变化
     ·请求过程中产生两个request和response对象
     ·两个servlet不能共享同一个request和response对象
+
+
+***cookie***
+    1.cookie是一种在客户端保持http状态信息的技术
+    2.cookie是在浏览器访问服务器的某个资源的时候，由web服务器在响应头传送给浏览器的数据
+    3.浏览器如果保存了某个cookie，那么以后每次访问服务器的时候，都会在请求头传递给服务器端
+    4.一个cookie只能记录一种数据信息，而且是key-value的形式
+    5.一个web站点可以给服务器端发送多个cookie，并且一个浏览器也可以存储多个站点的cookie
+    ·测试过程中，可以直接在网页中查看network中的Headers中进行查看，里面有一个Cookie就是web页面存储的信息
+    ·保存客户端发送不同的请求时，使用相同参数信息
+    特点：cookie是保存在浏览器端的数据名称；cookie可以分为临时cookie(存储在内存中)和持久化cookie
