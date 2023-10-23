@@ -20,6 +20,8 @@ public class CookieServlet extends HelloServlet {
         response.addCookie(cookie);
         //给cookie对象添加有效期，单位是秒
         cookie.setMaxAge(3*24*3600);
+        //给cookie设置固定路径值
+        cookie.setPath("/CookieServlet/abc");//设置指定的路径，一个cookie对应一个路径
         response.getWriter().write("studying cookie");
     }
 

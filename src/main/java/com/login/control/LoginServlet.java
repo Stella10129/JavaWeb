@@ -6,6 +6,7 @@ import com.login.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,6 +44,12 @@ public class LoginServlet extends HttpServlet {
                 //请求转发
                 //request.getRequestDispatcher("/HelloRedirect").forward(request, response);
                 //重定向，这里如果只写HelloRedirect，显示的URL是localhost:8080/HelloRedirect，所以在写路径的时候应该注意，这里一定要写绝对路径
+                //创建cookie对象
+                Cookie cookie = new Cookie("uid", u.getId()+"");
+                //为cookie设置生命周期
+                cookie.setMaxAge(7*24*3600);
+                //将cookie添加到response中
+                response.addCookie(cookie);
                 response.sendRedirect("/JavaWeb/HelloRedirect");
             }else {
                 //如果登录失败应该重定向到登录页面，重新登录

@@ -87,4 +87,43 @@
     <servlet-name>CookieServlet</servlet-name>
     <url-pattern>/CookieServlet</url-pattern>
   </servlet-mapping>
+
+  <!--Getcookie-->
+  <servlet>
+    <servlet-name>GetCookieServlet</servlet-name>
+    <servlet-class>com.cookie.GetCookieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetCookieServlet</servlet-name>
+    <url-pattern>/GetCookieServlet</url-pattern>
+  </servlet-mapping>
+
+  <!--设置cookie免密登陆-->
+  <servlet>
+    <servlet-name>NoPasCookie</servlet-name>
+    <servlet-class>com.login.control.CookieProjectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NoPasCookie</servlet-name>
+    <url-pattern>/NoPasCookie</url-pattern>
+  </servlet-mapping>
+
+  <!--session-->
+  <servlet>
+    <servlet-name>SessionServlet</servlet-name>
+    <servlet-class>com.session.SessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionServlet</servlet-name>
+    <url-pattern>/SessionServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SessionServlet2</servlet-name>
+    <servlet-class>com.session.SessionServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionServlet2</servlet-name>
+    <url-pattern>/SessionServlet2</url-pattern>
+  </servlet-mapping>
 </web-app>

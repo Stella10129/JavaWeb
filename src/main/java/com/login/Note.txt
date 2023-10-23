@@ -43,3 +43,24 @@
     ·测试过程中，可以直接在网页中查看network中的Headers中进行查看，里面有一个Cookie就是web页面存储的信息
     ·保存客户端发送不同的请求时，使用相同参数信息
     特点：cookie是保存在浏览器端的数据名称；cookie可以分为临时cookie(存储在内存中)和持久化cookie
+        临时cookie：默认是存储在内存中的，所以当浏览器关闭的的时候，cookie自动失效
+        持久化cookie：保存在浏览器的某一个存储目录种种，当时间过期之后才会失效
+    6.一个cookie对象中只保存一个key-value键值对数据，如果想存储多个kv数据，就要创建多个cookie对象
+    Cookie cookie = new Cookie("name", "abc");//创建cookie
+    response.addCookie(cookie);
+    //设置参数
+    cookie.setMaxAge(int seconds);//设置的数字，单位为秒
+    cookie.setPath(String Path);//设置的为cookie的固定路径名
+    //获取cookie
+    Cookie[] cookie = response.getCookies();
+
+
+***Session***
+    1.session表示会话，在一段时间内，用户与服务器之间的一系列的交互操作；
+    2.session对象：用户发送不同的请求的时候，在服务器端保存不同的请求共享数据的存储对象；
+    3.session依赖cookie技术的服务器端的数据存储技术；（有服务器创建）
+    4.每个用户独立拥有一个session对象（默认存储时间是30分钟）
+    创建过程：
+        用户使用浏览器第一次向服务器发送请求，服务器在接受到请求后，调用对应的servlet进行处理。
+        在处理过程中给用户创建一个session对象，用来存储用户请求相关的公共数据，并将这个session对象的JSESSIONID以session的形式存储在浏览器中（临时存储，浏览器关闭就失效）
+        用户在发起第二次请求及后续请求时，请求信息中会附带JSESSIONID，服务器收到请求后，调用对应的servlet进行请求处理，同时根据JESSIONID返回其对应的session对象。
